@@ -1,0 +1,379 @@
+@media(max-width: 750px) {
+    .nav .menu {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+    }
+
+    .nav a{
+        margin: 0px;
+    }
+
+    #motcles {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+    }
+}
+
+html {
+    background-color: rgb(7, 88, 84);
+}
+body {
+    width: 66%;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: white;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    font-family: 'Overlock', cursive;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+p {
+    margin-top: 0px;
+    font-family: 'Comfortaa', cursive;
+    line-height: 1.5em;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+em {
+    color: red;
+    font-weight: bold;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    font-family: 'Comfortaa', cursive;
+    line-height: 2em;
+}
+
+header {
+    margin: 0 0 10px 0;
+    width: 100%;
+    display: block;
+    padding: 5px 5px 10px 5px;
+}
+
+#header-textheader {
+    width: 66%;
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+}
+
+#header-nomprenom {
+    font-size: 58px;
+    font-weight : bold;
+    margin: 5px 0 5px 0;
+    font-family: 'Dancing Script', cursive;
+}
+
+#header-baseline {
+    font-size: 28px;
+    font-family: 'Overlock', cursive;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+#header-profilpicture {
+    width: 33%;
+    display: inline-block;
+    vertical-align: top;
+    text-align: right;
+}
+
+#header-profilpicture img {
+    width: 200px;
+    margin: 0 5px 0 5px;
+    border-radius: 20px;
+}
+
+.nav {
+    margin-top : 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.nav ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.nav .menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+nav li {
+    display: inline;
+}
+
+nav a {
+    padding: 1em;
+    margin: 1em;
+    border: 1px solid black;
+    display: block;
+    text-align: center;
+}
+
+nav a:hover{
+    background-color: rgb(7, 88, 84);
+    color: white;
+}
+
+main {
+    width: 100%;
+}
+
+#intro {
+    padding-top: 10px;
+}
+
+#motcles {
+    list-style: none;
+    text-align: center;
+    margin: 30px 0px 30px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.motcles-item {
+    padding: 15px;
+    margin: 10px;
+    border: 1px solid #333333;
+    background-color: #333333;
+    color: white;
+    border-radius: 70px;
+}
+
+#infosgen {
+    color:rgb(7, 88, 84);
+    text-align: center;
+    margin-top: 50px;
+}
+
+#intro-hobbyelevage a {
+    text-decoration: underline;
+    color:  rgb(7, 88, 84);
+    font-weight: bold;
+}
+
+#leftside {
+    display: inline-block;
+    width: 33%;
+    vertical-align: top;
+}
+
+#skills {
+    margin-right: 10px;
+}
+
+#hobbys {
+    margin-right: 10px;
+}
+
+#rightside {
+    display: inline-block;
+    width: 66%;
+    vertical-align: top;
+}
+
+#xp {
+    margin-left: 10px;
+}
+
+#xp table {
+    width : 100%;
+    font-family: 'Comfortaa', cursive;
+    line-height: 1.5em;
+}
+
+
+.xp-1eligne {
+    font-weight: bold;
+    background-color: lightgrey;
+}
+
+#xp td {
+    padding: 5px;
+}
+
+#formations {
+    margin-left: 10px;
+}
+
+#formations table {
+    width : 100%;
+    font-family: 'Comfortaa', cursive;
+    line-height: 1.5em;
+}
+
+#formations td {
+    padding: 5px;
+}
+
+footer {
+    border-top: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#menufooter {
+    padding: 10px;
+}
+
+#menufooter ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#menufooter li a {
+    text-decoration: underline;
+}
+
+#reseaux {
+    padding: 10px;
+    text-align: left;
+}
+
+#lien-elevage {
+    list-style: none;
+    text-align: center;
+    margin: 30px 0px 30px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#lien-elevage li {
+    padding: 15px;
+    margin: 10px;
+    border: 1px solid rgb(7, 88, 84);
+    background-color:rgb(7, 88, 84);
+    border-radius: 70px;
+}
+
+#lien-elevage li a {
+    color: white;
+}
+
+#lien-elevage li:hover {
+    background-color: rgb(35, 126, 121);
+}
+
+#galerie {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.galerie-item {
+    margin: 5px;
+}
+
+#video {
+    margin-bottom: 20px;
+}
+
+#video-pando {
+    display: flex;
+    justify-content: center;
+}
+
+#contact {
+    display: flex;
+    justify-content: space-between;
+}
+
+#formulaire {
+    font-family: 'Comfortaa', cursive;
+    line-height: 1.5em;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    width: 50%;
+}
+
+.form-item {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#nom-prenom {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#prenom {
+    margin-left: 50px;
+}
+
+#choix {
+    font-family: 'Comfortaa', cursive;
+    line-height: 1.5em;
+}
+
+::placeholder {
+    font-family: 'Comfortaa', cursive;
+    line-height: 1.5em;
+}
+
+#champs-msg {
+    display: flex;
+    flex-direction: column;
+}
+
+.bouton {
+    margin-top: 10px;
+    text-align: right;
+}
+
+button[type=submit] {
+    background-color: rgb(7, 88, 84);
+    color: white;
+    padding: 10px;
+    border: 1px solid rgb(7, 88, 84);
+    font-family: 'Comfortaa', cursive;
+}
+
+button[type=submit]:hover {
+    background-color: rgb(35, 126, 121);
+}
+
+input[type=text], input[type=email], select, textarea {
+    padding: 12px;
+    border-radius: 4px;
+}
+
+#infospratiques {
+    width: 50%;
+    margin-bottom: 20px;
+}
