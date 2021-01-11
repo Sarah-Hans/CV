@@ -4,7 +4,7 @@ $metaDescription ="Spécialisée en webmarketing et développement, découvrez m
 ?>
 
 <?php
-include 'header.php';
+require 'header.php';
 ?>
 
 <main>

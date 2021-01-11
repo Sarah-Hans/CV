@@ -4,7 +4,7 @@ $metaDescription ="Mon hobby principal consiste également en une 2e activité p
 ?>
 
 <?php
-include 'header.php';
+require 'header.php';
 ?>
 
 <main>

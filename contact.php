@@ -4,7 +4,7 @@ $metaDescription ="N'hésitez pas à me contacter pour avoir davantage d'informa
 ?>
 
 <?php
-include 'header.php';
+require 'header.php';
 ?>
 
 <main>
