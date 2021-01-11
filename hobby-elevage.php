@@ -1,4 +1,9 @@
 <?php
+$metaTitle = "Elevage de chats British Longhair";
+$metaDescription ="Mon hobby principal consiste également en une 2e activité professionnelle : l'élevage de chats de race British Longhair.";
+?>
+
+<?php
 include 'header.php';
 ?>
 

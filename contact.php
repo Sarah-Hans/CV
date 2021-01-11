@@ -1,4 +1,9 @@
 <?php
+$metaTitle = "Contacter Sarah Hans";
+$metaDescription ="N'hésitez pas à me contacter pour avoir davantage d'informations sur mon profil, mon parcours et mes compétences.";
+?>
+
+<?php
 include 'header.php';
 ?>
 
