@@ -4,7 +4,7 @@ $metaDescription ="Spécialisée en webmarketing et développement, découvrez m
 ?>
 
 <?php
-require 'header.php';
+require '../header.php';
 ?>
 
 <main>
@@ -151,5 +151,5 @@ require 'header.php';
     </main>
 
 <?php
-include 'footer.php';
+include '../footer.php';
 ?>
