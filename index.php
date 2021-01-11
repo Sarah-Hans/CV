@@ -1,36 +1,13 @@
-<!DOCTYPE html>
-<html lang="fr">
+<?php
+$title = "CV de Sarah Hans";
+$description ="Spécialisée en webmarketing et développement, découvrez mes compétences et mon expérience professionnelle";
+?>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="styles/style.css" rel="stylesheet" type="text/css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Dancing+Script&family=Overlock&display=swap" rel="stylesheet">
-    <title>CV de Sarah Hans</title>
-    <meta name="description" content="Spécialisée en webmarketing et développement web sur la région de Valence, dans la Drôme.">
-</head>
+<?php
+include 'header.php';
+?>
 
-<body>
-    <header>
-        <div id="header-textheader">
-            <a href="index.html">
-            <p id="header-nomprenom">Sarah Hans</p>
-            <p id="header-baseline">Développement web & Webmarketing</p>
-            </a>
-        </div>
-        <div id="header-profilpicture">
-            <img src="images/sarah-hans.jpg" alt="photo de profil" title="Photo de Sarah Hans">
-        </div>
-    </header>
-    <nav class="nav">
-        <ul class="menu">
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="hobby-elevage.html">Hobby principal</a></li>
-            <li><a href="contact.html">Contactez-moi</a></li>
-        </ul>
-    </nav>
-    <main>
+<main>
         <section id="intro">
             <h1>CV Sarah Hans - Développement web et Webmarketing</h1>
             <h2>Informations générales</h2>
@@ -172,23 +149,7 @@
         </div>
 
     </main>
-    <footer>
-        <div id="menufooter">
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="hobby-elevage.html">Hobby principal</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-        <div id="reseaux">
-            <p>Suivez-moi :</p>
-            <div id="img-reseaux">
-                <a href="https://fr.linkedin.com/in/sarahans"><img src="images/icone-linkedin.png" alt="Profil LinkedIn" title="Profil Twitter"></a>
-                <a href="https://twitter.com/lageekette"><img src="images/icone-twitter.png" alt="Profil Twitter" title="Profil LinkedIn"></a>
-            </div>
-            <p id="majcv">CV mis à jours le 07/01/2021</p>
-        </div>
-    </footer>
-</body>
 
-</html>
+<?php
+include 'footer.php';
+?>
