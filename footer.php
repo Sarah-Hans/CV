@@ -1,9 +1,9 @@
 <footer>
     <div id="menufooter">
         <ul>
-            <li><a href="index.php">Accueil</a></li>
-            <li><a href="hobby-elevage.php">Hobby principal</a></li>
-            <li><a href="contact.php">Contact</a></li>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="index.php?page=hobbyelevage">Hobby principal</a></li>
+            <li><a href="index.php?page=contact">Contact</a></li>
         </ul>
     </div>
     <div id="reseaux">

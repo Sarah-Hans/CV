@@ -1,10 +1,11 @@
 <?php
 $metaTitle = "CV de Sarah Hans";
 $metaDescription ="Spécialisée en webmarketing et développement, découvrez mes compétences et mon expérience professionnelle";
+
 ?>
 
 <?php
-require '../header.php';
+require 'header.php';
 ?>
 
 <main>
@@ -151,5 +152,5 @@ require '../header.php';
     </main>
 
 <?php
-include '../footer.php';
+include 'footer.php';
 ?>

@@ -1,19 +1,15 @@
 <?php
 
-$page = ;
-
-if ($_GET['page'] == '/hobby-elevage.php') {
-    include '/pages/hobby-elevage.php';
-}
-
-else if ($_GET['page'] == '/contact.php') {
-    include '/pages/contact.php';
-}
-
-else if ($_GET['page'] == '/') {
-    include '/pages/accueil.php';
-}
-
-else {
-    include '/pages/404.php';
+if(isset($_GET['page'])) {
+    if($_GET['page'] == 'contact') {
+        require 'pages/contact.php';
+    }
+    else if($_GET['page'] == 'hobbyelevage') {
+        require 'pages/hobby-elevage.php';
+    }
+    else {
+        require 'pages/404.php';
+    }
+} else {
+    require 'pages/accueil.php';
 }

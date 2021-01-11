@@ -25,8 +25,8 @@
 </header>
 <nav class="nav">
     <ul class="menu">
-        <li><a href="index.php">Accueil</a></li>
-        <li><a href="hobby-elevage.php">Hobby principal</a></li>
-        <li><a href="contact.php">Contactez-moi</a></li>
+        <li><a href="/">Accueil</a></li>
+        <li><a href="index.php?page=hobbyelevage">Hobby principal</a></li>
+        <li><a href="index.php?page=contact">Contactez-moi</a></li>
     </ul>
 </nav>
