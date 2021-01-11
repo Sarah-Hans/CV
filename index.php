@@ -1,6 +1,6 @@
 <?php
-$title = "CV de Sarah Hans";
-$description ="Spécialisée en webmarketing et développement, découvrez mes compétences et mon expérience professionnelle";
+$metaTitle = "CV de Sarah Hans";
+$metaDescription ="Spécialisée en webmarketing et développement, découvrez mes compétences et mon expérience professionnelle";
 ?>
 
 <?php
