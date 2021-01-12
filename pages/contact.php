@@ -2,19 +2,24 @@
 $metaTitle = "Contacter Sarah Hans";
 $metaDescription ="N'hésitez pas à me contacter pour avoir davantage d'informations sur mon profil, mon parcours et mes compétences.";
 
-?>
-
-<?php
 require 'header.php';
-?>
 
-<?php
 $choix = filter_input(INPUT_POST, 'choix');
 $user_name = filter_input(INPUT_POST, 'user_name');
 $user_firstname = filter_input(INPUT_POST, 'user_firstname');
 $user_email = filter_input(INPUT_POST, 'user_email');
 $raison = filter_input(INPUT_POST, 'raison');
-$user_msg = filter_input(INPUT_POST, 'user_msg')
+$user_msg = filter_input(INPUT_POST, 'user_msg');
+
+$datecourante = date('Y-m-d-H-i-s');
+$file = "contact/contact_$datecourante.txt";
+
+file_put_contents($file, $choix, FILE_APPEND | LOCK_EX);
+file_put_contents($file, $user_name, FILE_APPEND | LOCK_EX);
+file_put_contents($file, $user_firstname, FILE_APPEND | LOCK_EX);
+file_put_contents($file, $user_email, FILE_APPEND | LOCK_EX);
+file_put_contents($file, $raison, FILE_APPEND | LOCK_EX);
+file_put_contents($file, $user_msg, FILE_APPEND | LOCK_EX);
 ?>
 
 <main>
