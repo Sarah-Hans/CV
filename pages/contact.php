@@ -8,6 +8,15 @@ $metaDescription ="N'hésitez pas à me contacter pour avoir davantage d'informa
 require 'header.php';
 ?>
 
+<?php
+$choix = filter_input(INPUT_POST, 'choix');
+$user_name = filter_input(INPUT_POST, 'user_name');
+$user_firstname = filter_input(INPUT_POST, 'user_firstname');
+$user_email = filter_input(INPUT_POST, 'user_email');
+$raison = filter_input(INPUT_POST, 'raison');
+$user_msg = filter_input(INPUT_POST, 'user_msg')
+?>
+
 <main>
             <h1>Contactez-moi</h1>
             <div id="contact">
@@ -17,7 +26,7 @@ require 'header.php';
                     <form action="index.php?page=contact" method="post">
                         <div id="liste-choix">
                             <label for="choix">Civilité :</label>
-                            <select id="choix">
+                            <select name ="choix" id="choix">
                                 <option value="monsieur">Monsieur</option>
                                 <option value="madame">Madame</option>
                             </select>
@@ -34,7 +43,7 @@ require 'header.php';
                         </div>
                         <div id="champs-email" class="form-item">
                             <label for="mail">Adresse e-mail<em>*</em> :</label>
-                            <input type="email" id="mail" name="user-mail" placeholder="Votre e-mail">
+                            <input type="email" id="mail" name="user_mail" placeholder="Votre e-mail">
                         </div>
                         <div id="genre" class="form-item">
                             <label for="raison">Raison du contact :</label><br>
@@ -47,7 +56,7 @@ require 'header.php';
                         </div>
                         <div id="champs-msg">
                             <label for="msg">Votre message :</label>
-                            <textarea id="msg" name="user-msg" rows="5" placeholder="Votre message ici"></textarea>
+                            <textarea id="msg" name="user_msg" rows="5" placeholder="Votre message ici"></textarea>
                         </div>
                         <div class="bouton">
                             <button type="submit">Envoyer</button>
