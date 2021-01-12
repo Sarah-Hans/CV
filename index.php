@@ -1,6 +1,6 @@
 <?php
 
-$page = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_URL;
+$page = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_URL);
 
 if(isset($page)) {
     if($page == 'contact') {
