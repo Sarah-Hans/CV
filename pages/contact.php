@@ -14,35 +14,36 @@ require 'header.php';
                 <section id="formulaire">
                     <h2>Formulaire de contact</h2>
                     <p>Si vous souhaitez me contacter, n'hésitez pas à m'envoyer un message en utilisant le formulaire ci-dessous.</p>
-                    <form action="https://httpbin.org/post" method="post">
-                        <div id="genre">
-                            <input type="radio" id="madame" name="genre" value="madame">
-                            <label for="madame">Mme</label>
-                            <input type="radio" id="monsieur" name="genre" value="monsieur">
-                            <label for="madame">Mr</label>
+                    <form action="index.php?page=contact" method="post">
+                        <div id="liste-choix">
+                            <label for="choix">Civilité :</label>
+                            <select id="choix">
+                                <option value="monsieur">Monsieur</option>
+                                <option value="madame">Madame</option>
+                            </select>
                         </div>
                         <div id="nom-prenom" class="form-item">
                             <div id="nom">
                                 <label for="name">Nom<em>*</em> :</label>
-                                <input type="text" id="name" name="user_name" placeholder="Votre nom" required>
+                                <input type="text" id="name" name="user_name" placeholder="Votre nom">
                             </div>
                             <div id="prenom">
                                 <label for="firstname">Prénom<em>*</em> :</label>
-                                <input type="text" id="firstname" name="user_firstname" placeholder="Votre prénom" required>
+                                <input type="text" id="firstname" name="user_firstname" placeholder="Votre prénom">
                             </div>
                         </div>
                         <div id="champs-email" class="form-item">
                             <label for="mail">Adresse e-mail<em>*</em> :</label>
-                            <input type="email" id="mail" name="user-mail" placeholder="Votre e-mail" required>
+                            <input type="email" id="mail" name="user-mail" placeholder="Votre e-mail">
                         </div>
-                        <div id="liste-choix" class="form-item">
-                            <label for="choix">Motif de contact :</label>
-                            <select id="choix">
-                                <option value="">-----Sélectionnez une option-----</option>
-                                <option value="contact">Prise de contact</option>
-                                <option value="proposition-poste">Proposition de poste</option>
-                                <option value="renseignements">Besoin de renseignements</option>
-                            </select>
+                        <div id="genre" class="form-item">
+                            <label for="raison">Raison du contact :</label><br>
+                            <input type="radio" id="emploi" name="raison" value="emploi">
+                            <label for="emploi">Proposition d'emploi</label>
+                            <input type="radio" id="info" name="raison" value="info">
+                            <label for="info">Demande d'informations</label>
+                            <input type="radio" id="prestations" name="raison" value="prestations">
+                            <label for="prestations">Prestations</label>
                         </div>
                         <div id="champs-msg">
                             <label for="msg">Votre message :</label>
