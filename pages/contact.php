@@ -10,16 +10,48 @@ $user_firstname = filter_input(INPUT_POST, 'user_firstname');
 $user_email = filter_input(INPUT_POST, 'user_email');
 $raison = filter_input(INPUT_POST, 'raison');
 $user_msg = filter_input(INPUT_POST, 'user_msg');
+$envoyer = filter_input(INPUT_POST, 'envoyer');
 
 $datecourante = date('Y-m-d-H-i-s');
 $file = "contact/contact_$datecourante.txt";
+$formulaireok = true;
 
-file_put_contents($file, $choix, FILE_APPEND | LOCK_EX);
-file_put_contents($file, $user_name, FILE_APPEND | LOCK_EX);
-file_put_contents($file, $user_firstname, FILE_APPEND | LOCK_EX);
-file_put_contents($file, $user_email, FILE_APPEND | LOCK_EX);
-file_put_contents($file, $raison, FILE_APPEND | LOCK_EX);
-file_put_contents($file, $user_msg, FILE_APPEND | LOCK_EX);
+
+if(isset($envoyer)){
+    if(empty($choix)) {
+        $erreurchoix = "Veuillez sélectionner votre civilité svp.";
+        $formulaireok = false;
+    }
+    if(empty($user_name)) {
+        $erreurname = "Veuillez remplir votre nom svp.";
+        $formulaireok = false;
+    }
+    if(empty($user_firstname)) {
+        $erreurfirstname = "Veuillez remplir votre prénom svp.";
+        $formulaireok = false;
+    }
+    if(empty($user_email)) {
+        $erreuremail = "Veuillez remplir votre mail svp.";
+        $formulaireok = false;
+    }
+    if(empty($raison)) {
+        $erreurraison = "Veuillez sélectionner la raison de votre prise de contact svp.";
+        $formulaireok = false;
+    }
+    if(empty($user_msg)) {
+        $erreurmsg = "Veuillez rédiger un message svp.";
+        $formulaireok = false;
+    }
+    if ($formulaireok == true) {
+        file_put_contents($file, $choix, FILE_APPEND | LOCK_EX);
+        file_put_contents($file, $user_name, FILE_APPEND | LOCK_EX);
+        file_put_contents($file, $user_firstname, FILE_APPEND | LOCK_EX);
+        file_put_contents($file, $user_email, FILE_APPEND | LOCK_EX);
+        file_put_contents($file, $raison, FILE_APPEND | LOCK_EX);
+        file_put_contents($file, $user_msg, FILE_APPEND | LOCK_EX);
+    }
+}
+
 ?>
 
 <main>
@@ -30,6 +62,11 @@ file_put_contents($file, $user_msg, FILE_APPEND | LOCK_EX);
                     <p>Si vous souhaitez me contacter, n'hésitez pas à m'envoyer un message en utilisant le formulaire ci-dessous.</p>
                     <form action="index.php?page=contact" method="post">
                         <div id="liste-choix">
+                            <?php
+                                if(isset($erreurchoix)) {
+                                    echo $erreurchoix;
+                                }
+                            ?>
                             <label for="choix">Civilité :</label>
                             <select name ="choix" id="choix">
                                 <option value="monsieur">Monsieur</option>
@@ -38,36 +75,66 @@ file_put_contents($file, $user_msg, FILE_APPEND | LOCK_EX);
                         </div>
                         <div id="nom-prenom" class="form-item">
                             <div id="nom">
+                                <?php
+                                if(isset($erreurname)) {
+                                    echo $erreurname;
+                                }
+                                ?>
                                 <label for="name">Nom<em>*</em> :</label>
                                 <input type="text" id="name" name="user_name" placeholder="Votre nom">
                             </div>
                             <div id="prenom">
+                                <?php
+                                if(isset($erreurfirstname)) {
+                                    echo $erreurfirstname;
+                                }
+                                ?>
                                 <label for="firstname">Prénom<em>*</em> :</label>
                                 <input type="text" id="firstname" name="user_firstname" placeholder="Votre prénom">
                             </div>
                         </div>
+
                         <div id="champs-email" class="form-item">
+                            <?php
+                            if(isset($erreuremail)) {
+                                echo $erreuremail;
+                            }
+                            ?>
                             <label for="mail">Adresse e-mail<em>*</em> :</label>
-                            <input type="email" id="mail" name="user_mail" placeholder="Votre e-mail">
+                            <input type="email" id="mail" name="user_email" placeholder="Votre e-mail">
                         </div>
                         <div id="genre" class="form-item">
+                            <?php
+                            if(isset($erreurraison)) {
+                                echo $erreurraison;
+                            }
+                            ?>
                             <label for="raison">Raison du contact :</label><br>
-                            <input type="radio" id="emploi" name="raison" value="emploi">
+                            <input type="radio" id="emploi" name="raison" value="proposition d'emploi">
                             <label for="emploi">Proposition d'emploi</label>
-                            <input type="radio" id="info" name="raison" value="info">
+                            <input type="radio" id="info" name="raison" value="demande d'info">
                             <label for="info">Demande d'informations</label>
-                            <input type="radio" id="prestations" name="raison" value="prestations">
+                            <input type="radio" id="prestations" name="raison" value="demande de prestations">
                             <label for="prestations">Prestations</label>
                         </div>
                         <div id="champs-msg">
+                            <?php
+                            if(isset($erreurmsg)) {
+                                echo $erreurmsg;
+                            }
+                            ?>
                             <label for="msg">Votre message :</label>
                             <textarea id="msg" name="user_msg" rows="5" placeholder="Votre message ici"></textarea>
                         </div>
                         <div class="bouton">
-                            <button type="submit">Envoyer</button>
+                            <button type="submit" name="envoyer">Envoyer</button>
                         </div>
                     </form>
                 </section>
+
+                <?php
+
+                ?>
 
                 <section id="infospratiques">
                     <h2>Infos pratiques</h2>
