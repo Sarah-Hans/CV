@@ -66,11 +66,12 @@ if(isset($envoyer)){
                         <div id="liste-choix">
                             <?php
                                 if(isset($erreurchoix)) {
-                                    echo $erreurchoix;
+                                    echo '<span class="erreur">' . $erreurchoix . '</span><br>';
                                 }
                             ?>
                             <label for="choix">Civilité :</label>
                             <select name ="choix" id="choix">
+                                <option value="" selected disabled hidden>Choisissez :</option>
                                 <option value="monsieur">Monsieur</option>
                                 <option value="madame">Madame</option>
                             </select>
@@ -79,7 +80,7 @@ if(isset($envoyer)){
                             <div id="nom">
                                 <?php
                                 if(isset($erreurname)) {
-                                    echo $erreurname;
+                                    echo '<span class="erreur">' . $erreurname . '</span><br>';
                                 }
                                 ?>
                                 <label for="name">Nom<em>*</em> :</label>
@@ -88,7 +89,7 @@ if(isset($envoyer)){
                             <div id="prenom">
                                 <?php
                                 if(isset($erreurfirstname)) {
-                                    echo $erreurfirstname;
+                                    echo '<span class="erreur">' . $erreurfirstname . '</span><br>';
                                 }
                                 ?>
                                 <label for="firstname">Prénom<em>*</em> :</label>
@@ -99,7 +100,7 @@ if(isset($envoyer)){
                         <div id="champs-email" class="form-item">
                             <?php
                             if(isset($erreuremail)) {
-                                echo $erreuremail;
+                                echo '<span class="erreur">' . $erreuremail . '</span><br>';
                             }
                             ?>
                             <label for="mail">Adresse e-mail<em>*</em> :</label>
@@ -108,7 +109,7 @@ if(isset($envoyer)){
                         <div id="genre" class="form-item">
                             <?php
                             if(isset($erreurraison)) {
-                                echo $erreurraison;
+                                echo '<span class="erreur">' . $erreurraison . '</span><br>';
                             }
                             ?>
                             <label for="raison">Raison du contact :</label><br>
@@ -122,7 +123,7 @@ if(isset($envoyer)){
                         <div id="champs-msg">
                             <?php
                             if(isset($erreurmsg)) {
-                                echo $erreurmsg;
+                                echo '<span class="erreur">' . $erreurmsg . '</span>';
                             }
                             ?>
                             <label for="msg">Votre message :</label>

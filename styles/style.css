@@ -385,6 +385,6 @@ input[type=text], input[type=email], select, textarea {
 
 .erreur {
     color: red;
-    font-size: 8px;
+    font-size: 12px;
     font-weight: bold;
 }
