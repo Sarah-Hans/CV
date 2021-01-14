@@ -19,31 +19,40 @@ $datecourante = date('Y-m-d-H-i-s');
 $file = "contact/contact_$datecourante.txt";
 $formulaireok = true;
 
+$formErrors = [
+  "Choix" =>  "",
+  "Nom" =>   "",
+    "Prénom" => "",
+    "E-mail" => "",
+    "Raison" => "",
+    "Message" => "",
+];
+
 //validation des données du formulaire
 if(isset($envoyer)){
     if(!$choix) {
-        $erreurchoix = "Veuillez sélectionner votre civilité svp.";
         $formulaireok = false;
+        $formErrors['Choix'] = "Veuillez sélectionner votre civilité svp.";
     }
     if(!$user_name) {
-        $erreurname = "Veuillez remplir votre nom svp.";
         $formulaireok = false;
+        $formErrors['Nom'] = "Veuillez remplir votre nom svp.";
     }
     if(!$user_firstname) {
-        $erreurfirstname = "Veuillez remplir votre prénom svp.";
         $formulaireok = false;
+        $formErrors['Prénom'] = "Veuillez remplir votre prénom svp.";
     }
     if(!$user_email) {
-        $erreuremail = "L'adresse e-mail n'est pas valide";
         $formulaireok = false;
+        $formErrors['E-mail'] = "L'adresse e-mail n'est pas valide";
     }
     if(!$raison) {
-        $erreurraison = "Veuillez sélectionner la raison de votre prise de contact svp.";
         $formulaireok = false;
+        $formErrors['Raison'] = "Veuillez sélectionner la raison de votre prise de contact svp.";
     }
     if(strlen($user_msg) < 5) {
-        $erreurmsg = "Veuillez rédiger un message de plus de 5 caractères svp.";
         $formulaireok = false;
+        $formErrors['Message'] = "Veuillez rédiger un message de plus de 5 caractères svp.";
     }
     if ($formulaireok == true) {
         file_put_contents($file, $choix, FILE_APPEND | LOCK_EX);
@@ -54,8 +63,6 @@ if(isset($envoyer)){
         file_put_contents($file, $user_msg, FILE_APPEND | LOCK_EX);
     }
 }
-
-
 
 ?>
 
@@ -68,8 +75,8 @@ if(isset($envoyer)){
                     <form action="index.php?page=contact" method="post">
                         <div id="liste-choix">
                             <?php
-                                if(isset($erreurchoix)) {
-                                    echo '<span class="erreur">' . $erreurchoix . '</span><br>';
+                                if(isset($formErrors['Choix'])) {
+                                    echo '<span class="erreur">' . $formErrors['Choix'] . '</span><br>';
                                 }
                             ?>
                             <label for="choix">Civilité :</label>
@@ -82,8 +89,8 @@ if(isset($envoyer)){
                         <div id="nom-prenom" class="form-item">
                             <div id="nom">
                                 <?php
-                                if(isset($erreurname)) {
-                                    echo '<span class="erreur">' . $erreurname . '</span><br>';
+                                if(isset($formErrors['Nom'])) {
+                                    echo '<span class="erreur">' . $formErrors['Nom'] . '</span><br>';
                                 }
                                 ?>
                                 <label for="name">Nom<em>*</em> :</label>
@@ -91,8 +98,8 @@ if(isset($envoyer)){
                             </div>
                             <div id="prenom">
                                 <?php
-                                if(isset($erreurfirstname)) {
-                                    echo '<span class="erreur">' . $erreurfirstname . '</span><br>';
+                                if(isset($formErrors['Prénom'])) {
+                                    echo '<span class="erreur">' . $formErrors['Prénom'] . '</span><br>';
                                 }
                                 ?>
                                 <label for="firstname">Prénom<em>*</em> :</label>
@@ -102,8 +109,8 @@ if(isset($envoyer)){
 
                         <div id="champs-email" class="form-item">
                             <?php
-                            if(isset($erreuremail)) {
-                                echo '<span class="erreur">' . $erreuremail . '</span><br>';
+                            if(isset($formErrors['E-mail'])) {
+                                echo '<span class="erreur">' . $formErrors['E-mail'] . '</span><br>';
                             }
                             ?>
                             <label for="mail">Adresse e-mail<em>*</em> :</label>
@@ -111,8 +118,8 @@ if(isset($envoyer)){
                         </div>
                         <div id="genre" class="form-item">
                             <?php
-                            if(isset($erreurraison)) {
-                                echo '<span class="erreur">' . $erreurraison . '</span><br>';
+                            if(isset($formErrors['Raison'])) {
+                                echo '<span class="erreur">' . $formErrors['Raison'] . '</span><br>';
                             }
                             ?>
                             <label for="raison">Raison du contact :</label><br>
@@ -125,8 +132,8 @@ if(isset($envoyer)){
                         </div>
                         <div id="champs-msg">
                             <?php
-                            if(isset($erreurmsg)) {
-                                echo '<span class="erreur">' . $erreurmsg . '</span>';
+                            if(isset($formErrors['Message'])) {
+                                echo '<span class="erreur">' . $formErrors['Message'] . '</span>';
                             }
                             ?>
                             <label for="msg">Votre message :</label>
