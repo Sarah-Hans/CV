@@ -2,44 +2,46 @@
 $metaTitle = "Contacter Sarah Hans";
 $metaDescription ="N'hésitez pas à me contacter pour avoir davantage d'informations sur mon profil, mon parcours et mes compétences.";
 
+//appelle le header
 require 'header.php';
 
 $choix = filter_input(INPUT_POST, 'choix');
 $user_name = filter_input(INPUT_POST, 'user_name');
 $user_firstname = filter_input(INPUT_POST, 'user_firstname');
-$user_email = filter_input(INPUT_POST, 'user_email');
+$user_email = filter_input(INPUT_POST, 'user_email', FILTER_VALIDATE_EMAIL);
 $raison = filter_input(INPUT_POST, 'raison');
 $user_msg = filter_input(INPUT_POST, 'user_msg');
 $envoyer = filter_input(INPUT_POST, 'envoyer');
 
+//création du fichier de contact dynamique
 $datecourante = date('Y-m-d-H-i-s');
 $file = "contact/contact_$datecourante.txt";
 $formulaireok = true;
 
-
+//validation des données du formulaire
 if(isset($envoyer)){
-    if(empty($choix)) {
+    if(!$choix) {
         $erreurchoix = "Veuillez sélectionner votre civilité svp.";
         $formulaireok = false;
     }
-    if(empty($user_name)) {
+    if(!$user_name) {
         $erreurname = "Veuillez remplir votre nom svp.";
         $formulaireok = false;
     }
-    if(empty($user_firstname)) {
+    if(!$user_firstname) {
         $erreurfirstname = "Veuillez remplir votre prénom svp.";
         $formulaireok = false;
     }
-    if(empty($user_email)) {
-        $erreuremail = "Veuillez remplir votre mail svp.";
+    if(!$user_email) {
+        $erreuremail = "L'adresse e-mail n'est pas valide";
         $formulaireok = false;
     }
-    if(empty($raison)) {
+    if(!$raison) {
         $erreurraison = "Veuillez sélectionner la raison de votre prise de contact svp.";
         $formulaireok = false;
     }
-    if(empty($user_msg)) {
-        $erreurmsg = "Veuillez rédiger un message svp.";
+    if(strlen($user_msg) < 5) {
+        $erreurmsg = "Veuillez rédiger un message de plus de 5 caractères svp.";
         $formulaireok = false;
     }
     if ($formulaireok == true) {
