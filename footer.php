@@ -13,6 +13,8 @@
             <a href="https://twitter.com/lageekette"><img src="../images/icone-twitter.png" alt="Profil Twitter" title="Profil LinkedIn"></a>
         </div>
         <p id="majcv">CV mis à jours le 07/01/2021</p>
+        <p>Date de la première visite : <?php echo $_SESSION['dateFirstVisit']; ?></p>
+        <p>Nombre de pages vues : <?php echo $_SESSION['countViewPage']; ?></p>
     </div>
 </footer>
 </body>

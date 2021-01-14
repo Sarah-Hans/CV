@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+$date = date('Y-m-d-H:i:s');
+
+if (!isset($_SESSION['dateFirstVisit'])) {
+    $_SESSION['dateFirstVisit'] = $date;
+}
+
+if (!isset($_SESSION['countViewPage'])) {
+    $_SESSION['countViewPage'] = 0;
+} else {
+    $_SESSION['countViewPage']++;
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 

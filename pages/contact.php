@@ -11,6 +11,7 @@ $user_firstname = filter_input(INPUT_POST, 'user_firstname');
 $user_email = filter_input(INPUT_POST, 'user_email', FILTER_VALIDATE_EMAIL);
 $raison = filter_input(INPUT_POST, 'raison');
 $user_msg = filter_input(INPUT_POST, 'user_msg');
+
 $envoyer = filter_input(INPUT_POST, 'envoyer');
 
 //création du fichier de contact dynamique
@@ -53,6 +54,8 @@ if(isset($envoyer)){
         file_put_contents($file, $user_msg, FILE_APPEND | LOCK_EX);
     }
 }
+
+
 
 ?>
 
