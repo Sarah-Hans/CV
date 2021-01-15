@@ -1,12 +1,16 @@
 <?php
+//Initialisation de la session
 session_start();
 
+//date courante
 $date = date('Y-m-d-H:i:s');
 
+//condition pour afficher la date et heure de la toute 1e visite
 if (!isset($_SESSION['dateFirstVisit'])) {
     $_SESSION['dateFirstVisit'] = $date;
 }
 
+//condition pour le compteur de pages vues
 if (!isset($_SESSION['countViewPage'])) {
     $_SESSION['countViewPage'] = 0;
 } else {

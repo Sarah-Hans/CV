@@ -5,6 +5,7 @@ $metaDescription ="N'hésitez pas à me contacter pour avoir davantage d'informa
 //appelle le header
 require 'header.php';
 
+//on récupère les données externes du formulaire
 $choix = filter_input(INPUT_POST, 'choix');
 $user_name = filter_input(INPUT_POST, 'user_name');
 $user_firstname = filter_input(INPUT_POST, 'user_firstname');
@@ -12,6 +13,7 @@ $user_email = filter_input(INPUT_POST, 'user_email', FILTER_VALIDATE_EMAIL);
 $raison = filter_input(INPUT_POST, 'raison');
 $user_msg = filter_input(INPUT_POST, 'user_msg');
 
+//empêche de considérer un simple espace comme champs rempli
 $user_name = trim($user_name);
 $user_firstname = trim($user_firstname);
 $user_msg = trim($user_msg);
@@ -24,6 +26,7 @@ $datecourante = date('Y-m-d-H-i-s');
 $file = "contact/contact_$datecourante.txt";
 $formulaireok = true;
 
+//tableau associatif des messages d'erreur
 $formErrors = [
     "Choix" =>  "Veuillez sélectionner votre civilité svp.",
     "Nom" =>   "Veuillez remplir votre nom svp.",
@@ -39,6 +42,7 @@ if(isset($envoyer)){
         $formulaireok = false;
     }
     else {
+        //les données du formulaires sont écrites dans le fichier contact au nom dynamique
         file_put_contents($file, $choix, FILE_APPEND | LOCK_EX);
         file_put_contents($file, $user_name, FILE_APPEND | LOCK_EX);
         file_put_contents($file, $user_firstname, FILE_APPEND | LOCK_EX);
