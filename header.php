@@ -23,7 +23,7 @@ if (!isset($_SESSION['countViewPage'])) {
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Dancing+Script&family=Overlock&display=swap" rel="stylesheet">
     <title><?=$metaTitle?></title>
-    <meta name="description" content="<?$metaDescription?>">
+    <meta name="description" content="<?=$metaDescription?>">
 </head>
 
 <body>
