@@ -22,6 +22,5 @@ if (isset($page)) {
     require $routes['accueil'];
 }
 //affichage de ce qui était en buffer via la variable $render
-$render = ob_get_contents();
-ob_end_clean();
+$render = ob_get_clean();
 echo $render;
