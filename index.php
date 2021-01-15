@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 $page = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_URL);
 
 $routes = [
@@ -18,3 +18,6 @@ if (isset($page)) {
 } else {
     require $routes['accueil'];
 }
+$render = ob_get_contents();
+ob_end_clean();
+echo $render;
