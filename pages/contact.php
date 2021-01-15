@@ -12,6 +12,11 @@ $user_email = filter_input(INPUT_POST, 'user_email', FILTER_VALIDATE_EMAIL);
 $raison = filter_input(INPUT_POST, 'raison');
 $user_msg = filter_input(INPUT_POST, 'user_msg');
 
+$user_name = trim($user_name);
+$user_firstname = trim($user_firstname);
+$user_msg = trim($user_msg);
+$user_email = trim($user_email);
+
 $envoyer = filter_input(INPUT_POST, 'envoyer');
 
 //création du fichier de contact dynamique
@@ -146,7 +151,7 @@ if(isset($envoyer)){
                                 }
                             ?>
                             <label for="msg">Votre message :</label>
-                            <textarea id="msg" name="user_msg" rows="5" placeholder="Votre message ici"></textarea>
+                            <textarea id="msg" name="user_msg" rows="5" value="<?php echo $_SESSION['user_msg']; ?>" placeholder="Votre message ici"></textarea>
                         </div>
                         <div class="bouton">
                             <button type="submit" name="envoyer">Envoyer</button>
