@@ -20,41 +20,20 @@ $file = "contact/contact_$datecourante.txt";
 $formulaireok = true;
 
 $formErrors = [
-  "Choix" =>  "",
-  "Nom" =>   "",
-    "Prénom" => "",
-    "E-mail" => "",
-    "Raison" => "",
-    "Message" => "",
+    "Choix" =>  "Veuillez sélectionner votre civilité svp.",
+    "Nom" =>   "Veuillez remplir votre nom svp.",
+    "Prénom" => "Veuillez remplir votre prénom svp.",
+    "E-mail" => "L'adresse e-mail n'est pas valide",
+    "Raison" => "Veuillez sélectionner la raison de votre prise de contact svp.",
+    "Message" => "Veuillez rédiger un message de plus de 5 caractères svp.",
 ];
 
 //validation des données du formulaire
 if(isset($envoyer)){
-    if(!$choix) {
+    if(!$choix | !$user_name | !$user_firstname | !$user_email | !$raison | !$user_msg ) {
         $formulaireok = false;
-        $formErrors['Choix'] = "Veuillez sélectionner votre civilité svp.";
     }
-    if(!$user_name) {
-        $formulaireok = false;
-        $formErrors['Nom'] = "Veuillez remplir votre nom svp.";
-    }
-    if(!$user_firstname) {
-        $formulaireok = false;
-        $formErrors['Prénom'] = "Veuillez remplir votre prénom svp.";
-    }
-    if(!$user_email) {
-        $formulaireok = false;
-        $formErrors['E-mail'] = "L'adresse e-mail n'est pas valide";
-    }
-    if(!$raison) {
-        $formulaireok = false;
-        $formErrors['Raison'] = "Veuillez sélectionner la raison de votre prise de contact svp.";
-    }
-    if(strlen($user_msg) < 5) {
-        $formulaireok = false;
-        $formErrors['Message'] = "Veuillez rédiger un message de plus de 5 caractères svp.";
-    }
-    if ($formulaireok == true) {
+    else {
         file_put_contents($file, $choix, FILE_APPEND | LOCK_EX);
         file_put_contents($file, $user_name, FILE_APPEND | LOCK_EX);
         file_put_contents($file, $user_firstname, FILE_APPEND | LOCK_EX);
@@ -66,6 +45,7 @@ if(isset($envoyer)){
 
 ?>
 
+
 <main>
             <h1>Contactez-moi</h1>
             <div id="contact">
@@ -75,8 +55,12 @@ if(isset($envoyer)){
                     <form action="index.php?page=contact" method="post">
                         <div id="liste-choix">
                             <?php
-                                if(isset($formErrors['Choix'])) {
-                                    echo '<span class="erreur">' . $formErrors['Choix'] . '</span><br>';
+                                if(isset($envoyer)) {
+                                    if (!$choix) {
+                                        echo '<span class="erreur">' . $formErrors['Choix'] . '</span><br>';
+                                    } else {
+                                        $_SESSION['choix'] = $choix;
+                                    }
                                 }
                             ?>
                             <label for="choix">Civilité :</label>
@@ -89,38 +73,58 @@ if(isset($envoyer)){
                         <div id="nom-prenom" class="form-item">
                             <div id="nom">
                                 <?php
-                                if(isset($formErrors['Nom'])) {
-                                    echo '<span class="erreur">' . $formErrors['Nom'] . '</span><br>';
-                                }
+                                    if(isset($envoyer)) {
+                                        if (!$user_name) {
+                                            echo '<span class="erreur">' . $formErrors['Nom'] . '</span><br>';
+                                        }
+                                        else {
+                                            $_SESSION['user_name'] = $user_name;
+                                        }
+                                    }
                                 ?>
                                 <label for="name">Nom<em>*</em> :</label>
-                                <input type="text" id="name" name="user_name" placeholder="Votre nom">
+                                <input type="text" id="name" name="user_name" value="<?php echo $_SESSION['user_name']; ?>" placeholder="Votre nom">
                             </div>
                             <div id="prenom">
                                 <?php
-                                if(isset($formErrors['Prénom'])) {
-                                    echo '<span class="erreur">' . $formErrors['Prénom'] . '</span><br>';
-                                }
+                                    if(isset($envoyer)) {
+                                        if (!$user_firstname) {
+                                            echo '<span class="erreur">' . $formErrors['Prénom'] . '</span><br>';
+                                        }
+                                        else {
+                                            $_SESSION['user_firstname'] = $user_firstname;
+                                        }
+                                    }
                                 ?>
                                 <label for="firstname">Prénom<em>*</em> :</label>
-                                <input type="text" id="firstname" name="user_firstname" placeholder="Votre prénom">
+                                <input type="text" id="firstname" name="user_firstname" value="<?php echo $_SESSION['user_firstname']; ?>" placeholder="Votre prénom">
                             </div>
                         </div>
 
                         <div id="champs-email" class="form-item">
                             <?php
-                            if(isset($formErrors['E-mail'])) {
-                                echo '<span class="erreur">' . $formErrors['E-mail'] . '</span><br>';
-                            }
+                                if(isset($envoyer)) {
+                                    if (!$user_email) {
+                                        echo '<span class="erreur">' . $formErrors['E-mail'] . '</span><br>';
+                                    }
+                                    else {
+                                        $_SESSION['user_email'] = $user_email;
+                                    }
+                                }
                             ?>
                             <label for="mail">Adresse e-mail<em>*</em> :</label>
                             <input type="email" id="mail" name="user_email" placeholder="Votre e-mail">
                         </div>
                         <div id="genre" class="form-item">
                             <?php
-                            if(isset($formErrors['Raison'])) {
-                                echo '<span class="erreur">' . $formErrors['Raison'] . '</span><br>';
-                            }
+                                if(isset($envoyer)) {
+                                    if (!$raison) {
+                                        echo '<span class="erreur">' . $formErrors['Raison'] . '</span><br>';
+                                    }
+                                    else {
+                                        $_SESSION['raison'] = $raison;
+                                    }
+                                }
                             ?>
                             <label for="raison">Raison du contact :</label><br>
                             <input type="radio" id="emploi" name="raison" value="proposition d'emploi">
@@ -132,9 +136,14 @@ if(isset($envoyer)){
                         </div>
                         <div id="champs-msg">
                             <?php
-                            if(isset($formErrors['Message'])) {
-                                echo '<span class="erreur">' . $formErrors['Message'] . '</span>';
-                            }
+                                if(isset($envoyer)) {
+                                    if (!$user_msg) {
+                                        echo '<span class="erreur">' . $formErrors['Message'] . '</span>';
+                                    }
+                                    else {
+                                        $_SESSION['user_msg'] = $user_msg;
+                                    }
+                                }
                             ?>
                             <label for="msg">Votre message :</label>
                             <textarea id="msg" name="user_msg" rows="5" placeholder="Votre message ici"></textarea>
@@ -144,10 +153,6 @@ if(isset($envoyer)){
                         </div>
                     </form>
                 </section>
-
-                <?php
-
-                ?>
 
                 <section id="infospratiques">
                     <h2>Infos pratiques</h2>
